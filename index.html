@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown timer</title>
+    <style>
+        
+        img {
+            position: absolute;
+            top: 100px; 
+            left: 200px; 
+           
+        }
+        .text {
+            margin-left: 500px; 
+        }
+
+        .rounded-image {
+            border-radius: 2%; 
+        }
+
+        .moved-text {
+            margin-top: 150px; 
+            margin-left: 790px; 
+        }
+
+        .moved-text2 {
+            margin-top: 7px;
+            margin-left: 790px;
+        }
+        
+        .moved-text3 {
+            margin-top: 9px;
+            margin-left: 790px;
+        }
+        body {
+            background: radial-gradient(circle, #f0ecfc, #cad7e4); 
+            margin: 0;
+            padding: 0;
+        }
+        
+ .deadline.expired-message {
+    margin-left: 790px; 
+ }
+ .deadline-format {    
+    display: inline-block; 
+    margin-right: 20px; 
+}
+
+.deadline-format h4 {
+    font-size: 18px; 
+    color: #d4d1d4; 
+    margin-bottom: 5px; 
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.deadline-format span {
+    font-size: 15px; 
+    color: #e5e1e4; 
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.deadline-format > div {
+    position: relative;
+    padding: 5px 10px; 
+    border: 3px solid #040d18; 
+    border-radius: 4px; 
+    background-color: #040d18; 
+    width: 50px;
+    height: 70px;
+    text-align: center; 
+}
+
+@media (max-width: 620px) {
+    .center {
+        display: flex;
+        flex-direction: column;
+        margin-top: 200px;
+        align-items: flex-start;
+    }
+    .moved-text {
+        margin-left: 20px;
+        display: inline-block;
+    }
+    .moved-text2 {
+        margin-left: 20px;
+        display: flex;
+    }
+    .moved-text3 {
+        margin-left: 20px;
+        display: inline-block;
+    }
+    img {
+        left: 20px;
+        width: 330px;
+        height: 220px;
+        display: inline-block;
+    }
+    .deadline.expired-message {
+        margin-left: 20px;
+        display: flex;
+    }
+    .deadline-format {
+        margin-left: 1px;
+        display: inline-block;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <section class="center">
+    <article class="matric info"> 
+        <p class="moved-text"><span style="color:rgb(5, 32, 48); font-family: 'Times New Roman', Times, serif; font-size: 25px; font-weight: bold;">2024 BABCOCK MATRICULATION</span>.</p>
+        <p class="moved-text2"><span style="color:rgb(15, 37, 62); font-family: Georgia, 'Times New Roman', Times, serif; font-size: 17px;"></span>matriculation will now hold on Friday, 23rd of june 2024 the time is 7.00am prompt</p>
+        <p class="moved-text3"><span style="color:rgb(6, 58, 100); font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit<br>molestiae cum libero atque ut voluptate qui consectetur aliquid incidunt<br>voluptatem quos, dolore, non commodi quaerat aliquam eligendi,<br>quisquam totam blanditiis</span>.</p>
+    
+        <article class="matric-picture"> 
+            <img class="rounded-image shifted-image" src="matric.jpg" alt="matric" width="550" height="350">
+            <div class="deadline expired-message">
+                <div class="deadline-format">
+                    <div>
+                        <h4 class="days">00</h4>
+                        <span>DAYS</span>
+                    </div>
+                </div>
+                <div class="deadline-format">
+                    <div>
+                        <h4 class="hours">00</h4>
+                        <span>HOURS</span>
+                    </div>
+                </div>
+                <div class="deadline-format">
+                    <div>
+                        <h4 class="minutes">00</h4>
+                        <span>MINS</span>
+                    </div>
+                </div>
+                <div class="deadline-format">
+                    <div>
+                        <h4 class="seconds">00</h4>
+                        <span>SECS</span>
+                    </div>
+                </div> 
+            </div>
+        </article>
+    </article>
+</section>
+
+    <article>
+        <script>
+            // JavaScript code for countdown timer
+            var countDownDate = new Date("June 23, 2024 07:00:00").getTime();
+            var x = setInterval(function() {
+                var now = new Date().getTime();
+                var distance = countDownDate - now;
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                document.querySelector('.days').innerHTML = days;
+                document.querySelector('.hours').innerHTML = hours;
+                document.querySelector('.minutes').innerHTML = minutes;
+                document.querySelector('.seconds').innerHTML = seconds;
+    
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.querySelector('.deadline').innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        </script>
+</body>
+</html>
